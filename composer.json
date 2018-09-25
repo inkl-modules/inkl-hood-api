@@ -1,0 +1,13 @@
+{
+    "name": "inkl/hood-api",
+    "require": {
+        "guzzlehttp/guzzle": "^6.3.3"
+    },
+    "require-dev": {
+    },
+	"autoload": {
+		"psr-4": {
+			"Inkl\\HoodApi\\" : "src/"
+		}
+	}
+}
