@@ -9,7 +9,7 @@ class Auction
     private $categoryId;
     private $auctionName;
     private $quantity;
-    private $condition = 'neu';
+    private $condition = 'new';
     private $description;
 
     private $payOptions = [];

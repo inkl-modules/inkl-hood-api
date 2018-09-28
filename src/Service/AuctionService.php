@@ -19,7 +19,36 @@ class AuctionService
     /**
      * @param Auction[] $auctions
      */
+    public function validate(array $auctions)
+    {
+        return $this->baseRequest('auctionValidate', $auctions);
+    }
+
+    /**
+     * @param Auction[] $auctions
+     */
     public function insert(array $auctions)
+    {
+        return $this->baseRequest('auctionInsert', $auctions);
+    }
+
+    /**
+     * @param Auction[] $auctions
+     */
+    public function update(array $auctions)
+    {
+        return $this->baseRequest('auctionUpdate', $auctions);
+    }
+
+    /**
+     * @param Auction[] $auctions
+     */
+    public function delete(array $auctions)
+    {
+        return $this->baseRequest('auctionDelete', $auctions);
+    }
+
+    private function baseRequest($method, array $auctions)
     {
         $dom = new \DOMDocument();
 
@@ -32,7 +61,7 @@ class AuctionService
             $auctionsElement->appendChild($dom->importNode($auctionElement, true));
         }
 
-        return $this->client->request('auctionValidate', $dom);
+        return $this->client->request($method, $dom);
     }
 
 }
